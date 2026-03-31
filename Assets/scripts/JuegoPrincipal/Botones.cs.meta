@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bdd606914b808ba499b3f8136edeb85c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fadeAnimator: {instanceID: 0}
+  - spriteNormal: {fileID: 3763752930381237044, guid: ed19541417d9a65469c40a0372dd73c7, type: 3}
+  - spriteHover: {fileID: -445332791505162358, guid: ed19541417d9a65469c40a0372dd73c7, type: 3}
+  - sonidoClick: {fileID: 8300000, guid: d112fd56f21a5f4489d5a1c033eae4ca, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
