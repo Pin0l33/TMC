@@ -13,7 +13,7 @@ public class BotonFNAF : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     void Start()
     {
         texto = GetComponent<TMP_Text>();
-        textoOriginal = texto.text; // guarda el texto base
+        textoOriginal = texto.text;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -30,11 +30,11 @@ public class BotonFNAF : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (accion == "NewGame")
         {
-            SceneManager.LoadScene("TuEscena");
+            SceneManager.LoadScene("Diario");
         }
         else if (accion == "Continue")
         {
-            Debug.Log("Continuar");
+            Debug.Log("Continuar (todavía no implementado)");
         }
         else if (accion == "Codes")
         {

@@ -6,22 +6,31 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
+    path: Assets/Scenes/juego/Intro.unity
     guid: e4ee261c510364e408e2348c5bdb1711
   - enabled: 1
-    path: Assets/Scenes/MenuPrincipal.unity
+    path: Assets/Scenes/juego/MenuPrincipal.unity
     guid: a08a2474de90a994fb605d1a1c4c255e
   - enabled: 1
-    path: Assets/Scenes/juego.unity
+    path: Assets/Scenes/juego/juego.unity
     guid: 14c0003ca4241d245b51cf51486cd963
   - enabled: 1
-    path: Assets/Scenes/FNAE_Menu.unity
+    path: Assets/Scenes/FNAE/FNAE_Menu.unity
     guid: a50dbbbc5e1dc9149bb9c165fded0161
   - enabled: 1
-    path: Assets/Scenes/CodesScene.unity
+    path: Assets/Scenes/FNAE/Diario.unity
+    guid: dd423a327e28ad047951ce05b9d949ef
+  - enabled: 1
+    path: Assets/Scenes/FNAE/TransicionDeNoche.unity
+    guid: 7ffa558934a94ac488745cf29e7cb640
+  - enabled: 1
+    path: Assets/Scenes/FNAE/Noche1.unity
+    guid: ff073de854fe6834fb652d3ed2716b1a
+  - enabled: 1
+    path: Assets/Scenes/FNAE/CodesScene.unity
     guid: e6f0e5ee34b534b448e57982cbee3e31
   - enabled: 1
-    path: Assets/Scenes/Lemos.unity
+    path: Assets/Scenes/FNAE/Lemos.unity
     guid: de07518691e64d141b2f69be9abab4d6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
