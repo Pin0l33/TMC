@@ -15,7 +15,7 @@ h1{
 h2{
     font-size: 50px;
     text-align: left;
-    padding-top: 200px;
+    padding-top: 100px;
     padding-left: 40px;
 
 }
@@ -31,7 +31,7 @@ h3{
     text-align: left;
     padding-left: 40px;
     font-size: 30px;
-    margin-top: 200px;
+    margin-top: 50px;
 }
 h4{
     text-align: left;
@@ -175,4 +175,9 @@ footer a:hover{
         text-align:center;
     }
 
+}
+.titulos h2{
+    font-size: 75px;
+    text-align: center;
+    color: rgb(255, 72, 72);
 }
