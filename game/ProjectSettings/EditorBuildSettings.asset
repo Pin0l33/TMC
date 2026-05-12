@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FNAE/Noche1.unity
     guid: ff073de854fe6834fb652d3ed2716b1a
   - enabled: 1
+    path: Assets/Scenes/FNAE/Victory.unity
+    guid: 9310e9ac5187f5d4ba0063f938c57575
+  - enabled: 1
     path: Assets/Scenes/FNAE/CodesScene.unity
     guid: e6f0e5ee34b534b448e57982cbee3e31
   - enabled: 1
