@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #171a21;
+    background-color: #120816;
     color: white;
     font-family: Arial, sans-serif;
     padding-top: 80px;
@@ -14,7 +14,7 @@ body{
 .navbar{
     width: 100%;
     height: 80px;
-    background-color: #1b2838;
+    background-color: #1b0f2b;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,7 +26,7 @@ body{
 }
 
 .logo h1{
-    color: #66c0f4;
+    color: #ff4d6d;
     font-size: 28px;
 }
 
@@ -44,9 +44,8 @@ body{
 }
 
 .nav-links a:hover{
-    color: #66c0f4;
+    color: #ff4d6d;
 }
-
 
 .hero{
     height: 90vh;
@@ -75,21 +74,19 @@ body{
     font-size: 18px;
 }
 
-
 .btn{
-    background-color: #66c0f4;
-    color: black;
+    background-color: #c1121f;
+    color: white;
     text-decoration: none;
     padding: 15px 30px;
     border-radius: 5px;
     font-weight: bold;
-    transition: 0.3s
+    transition: 0.3s;
 }
 
 .btn:hover{
-    background-color: white;
+    background-color: #ff4d6d;
 }
-
 
 .cards-section{
     display: flex;
@@ -101,7 +98,7 @@ body{
 
 .card{
     width: 300px;
-    background-color: #1b2838;
+    background-color: #241336;
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s;
@@ -126,13 +123,13 @@ body{
     padding: 0 15px 20px;
 }
 
-
 footer{
-    background-color: #1b2838;
+    background-color: #1b0f2b;
     text-align: center;
     padding: 20px;
     margin-top: 40px;
 }
+
 .game-page{
     padding: 40px;
 }
@@ -151,7 +148,9 @@ footer{
 .game-info h2{
     font-size: 50px;
     margin-bottom: 20px;
+    color: #ff4d6d;
 }
+
 .game-info h3{
     padding: 15px;
 }
@@ -168,7 +167,7 @@ footer{
 }
 
 .achievement{
-    background-color: #1b2838;
+    background-color: #241336;
     padding: 20px;
     border-radius: 10px;
     width: 250px;
@@ -178,10 +177,12 @@ footer{
 .achievement:hover{
     transform: scale(1.05);
 }
+
 .card a{
     text-decoration: none;
     color: white;
 }
+
 /* PAGINA DEL JUEGO */
 
 .game-page{
@@ -190,14 +191,10 @@ footer{
 
 .game-banner{
     width: 100%;
-
     height: 500px;
-
     object-fit: cover;
-
     border-radius: 15px;
-
-    box-shadow: 0px 0px 20px rgba(102,192,244,0.3);
+    box-shadow: 0px 0px 20px rgba(255,77,109,0.3);
 }
 
 /* INFO */
@@ -208,93 +205,66 @@ footer{
 
 .game-info h2{
     font-size: 60px;
-
-    color: #66c0f4;
-
+    color: #ff4d6d;
     margin-bottom: 20px;
 }
 
 .game-info p{
     font-size: 18px;
-
     line-height: 1.6;
-
     margin-bottom: 30px;
 }
 
 .subtitle{
     margin-top: 50px;
-
     margin-bottom: 20px;
-
     font-size: 35px;
-
-    color: #66c0f4;
+    color: #ff4d6d;
 }
-
 
 .tags{
     display: flex;
-
     gap: 10px;
-
     flex-wrap: wrap;
-
     margin-bottom: 30px;
 }
 
 .tag{
-    background-color: #2a475e;
-
+    background-color: #4a1942;
     padding: 10px 15px;
-
     border-radius: 5px;
-
     font-size: 14px;
 }
 
-/* LOGROS */
-
 .achievements{
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 20px;
 }
 
 .achievement{
     width: 280px;
-
     background: linear-gradient(
         135deg,
-        #1b2838,
-        #24384d
+        #241336,
+        #3d1c4f
     );
 
     padding: 20px;
-
     border-radius: 12px;
-
-    border: 1px solid rgba(102,192,244,0.2);
-
+    border: 1px solid rgba(255,77,109,0.2);
     transition: 0.3s;
 }
 
 .achievement:hover{
     transform: translateY(-5px);
-
-    box-shadow: 0px 0px 15px rgba(102,192,244,0.3);
+    box-shadow: 0px 0px 15px rgba(255,77,109,0.3);
 }
 
 .achievement h4{
-    color: #66c0f4;
-
+    color: #ff4d6d;
     margin-bottom: 10px;
-}
-
-
-.screenshots{
+}.screenshots{
     margin-top: 60px;
 }
 
@@ -320,6 +290,7 @@ footer{
 .screenshot-grid img:hover{
     transform: scale(1.03);
 }
+
 /* GALERIA MODERNA */
 
 .games-gallery{
@@ -346,7 +317,7 @@ footer{
 
     text-decoration: none;
 
-    background-color: #1b2838;
+    background-color: #241336;
 
     transition: 0.4s;
 
@@ -384,7 +355,7 @@ footer{
 
     margin-bottom: 10px;
 
-    color: #66c0f4;
+    color: #ff4d6d;
 }
 
 .game-overlay p{
@@ -396,17 +367,20 @@ footer{
 .game-card:hover{
     transform: translateY(-10px);
 
-    box-shadow: 0px 0px 25px rgba(102,192,244,0.4);
+    box-shadow: 0px 0px 25px rgba(255,77,109,0.4);
 }
 
 .game-card:hover img{
     transform: scale(1.05);
 }
+
 .gallery-title h2{
     text-align: center;
     font-size: 75px;
     margin-top: 25px;
+    color: #ff4d6d;
 }
+
 /* PAGINA DESCARGA */
 
 .download-page{
@@ -422,8 +396,8 @@ footer{
 
     background: linear-gradient(
         135deg,
-        #1b2838,
-        #24384d
+        #241336,
+        #3d1c4f
     );
 
     border-radius: 20px;
@@ -436,7 +410,7 @@ footer{
 }
 
 .download-image{
-    width: 45%;
+    width: 65%;
 
     object-fit: cover;
 }
@@ -450,7 +424,7 @@ footer{
 .download-info h2{
     font-size: 55px;
 
-    color: #66c0f4;
+    color: #ff4d6d;
 
     margin-bottom: 20px;
 }
@@ -466,7 +440,7 @@ footer{
 /* REQUISITOS */
 
 .requirements-box{
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(80,20,60,0.35);
 
     padding: 25px;
 
@@ -478,7 +452,7 @@ footer{
 .requirements-box h3{
     margin-bottom: 20px;
 
-    color: #66c0f4;
+    color: #ff4d6d;
 }
 
 .requirements-box ul{
@@ -498,8 +472,8 @@ footer{
 
     background: linear-gradient(
         90deg,
-        #66c0f4,
-        #2a8cd6
+        #c1121f,
+        #ff4d6d
     );
 
     color: white;
@@ -520,8 +494,9 @@ footer{
 .download-btn:hover{
     transform: scale(1.05);
 
-    box-shadow: 0px 0px 15px rgba(102,192,244,0.5);
+    box-shadow: 0px 0px 15px rgba(255,77,109,0.5);
 }
+
 /* CONTACTO */
 
 .contact-page{
@@ -539,8 +514,8 @@ footer{
 
     background: linear-gradient(
         135deg,
-        #1b2838,
-        #24384d
+        #241336,
+        #3d1c4f
     );
 
     padding: 50px;
@@ -555,7 +530,7 @@ footer{
 .contact-card h2{
     font-size: 55px;
 
-    color: #66c0f4;
+    color: #ff4d6d;
 
     margin-bottom: 20px;
 }
@@ -583,7 +558,7 @@ footer{
 .contact-item{
     width: 230px;
 
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(80,20,60,0.35);
 
     padding: 25px;
 
@@ -595,11 +570,11 @@ footer{
 .contact-item:hover{
     transform: translateY(-5px);
 
-    box-shadow: 0px 0px 15px rgba(102,192,244,0.3);
+    box-shadow: 0px 0px 15px rgba(255,77,109,0.3);
 }
 
 .contact-item h3{
-    color: #66c0f4;
+    color: #ff4d6d;
 
     margin-bottom: 15px;
 
@@ -609,6 +584,7 @@ footer{
 .contact-item p{
     font-size: 17px;
 }
+
 .contact-item a{
     color: white;
 
@@ -618,5 +594,5 @@ footer{
 }
 
 .contact-item a:hover{
-    color: #66c0f4;
+    color: #ff4d6d;
 }
