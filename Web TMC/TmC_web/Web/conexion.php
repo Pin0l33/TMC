@@ -3,7 +3,7 @@
 $host = "localhost";
 $usuario = "root";
 $password = "";
-$base_datos = "web";
+$base_datos = "tmc";
 
 $conn = mysqli_connect($host, $usuario, $password, $base_datos);
 
