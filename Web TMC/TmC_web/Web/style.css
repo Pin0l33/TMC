@@ -129,12 +129,6 @@ body{
     padding: 0 15px 20px;
 }
 
-footer{
-    background-color: #1b0f2b;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
 
 .game-page{
     padding: 40px;
@@ -203,7 +197,7 @@ footer{
     box-shadow: 0px 0px 20px rgba(255,77,109,0.3);
 }
 
-/* INFO */
+
 
 .game-info{
     margin-top: 40px;
@@ -297,7 +291,7 @@ footer{
     transform: scale(1.03);
 }
 
-/* GALERIA MODERNA */
+
 
 .games-gallery{
     display: flex;
@@ -387,7 +381,7 @@ footer{
     color: #ff4d6d;
 }
 
-/* PAGINA DESCARGA */
+
 
 .download-page{
     display: flex;
@@ -443,7 +437,7 @@ footer{
     margin-bottom: 30px;
 }
 
-/* REQUISITOS */
+
 
 .requirements-box{
     background-color: rgba(80,20,60,0.35);
@@ -471,7 +465,7 @@ footer{
     font-size: 17px;
 }
 
-/* BOTON DESCARGA */
+
 
 .download-btn{
     display: inline-block;
@@ -547,8 +541,6 @@ footer{
 
     margin-bottom: 40px;
 }
-
-/* LINKS */
 
 .contact-links{
     display: flex;
@@ -661,10 +653,17 @@ footer{
 }
 main{
     margin-left: 0;
+    flex: 1;
 }
 .registro{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+footer{
+    background-color: #1b0f2b;
+    text-align: center;
+    padding: 20px;
+
 }
