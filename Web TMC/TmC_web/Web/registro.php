@@ -2,16 +2,32 @@
 
 include("conexion.php");
 
-$usuario = $_POST['usuario'];
+$username = $_POST['usuario'];
 $email = $_POST['email'];
-$contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
+$password_hash = password_hash(
+    $_POST['contraseña'],
+    PASSWORD_DEFAULT
+);
 
-$sql = "INSERT INTO usuarios (usuario, email, contraseña)
-        VALUES ('$usuario', '$email', '$contraseña')";
+$sql = "INSERT INTO USUARIO
+(
+    username,
+    email,
+    password_hash
+)
+VALUES
+(
+    '$username',
+    '$email',
+    '$password_hash'
+)";
 
-if (mysqli_query($conn, $sql)) {
+if(mysqli_query($conn, $sql))
+{
     echo "Usuario registrado correctamente";
-} else {
+}
+else
+{
     echo "Error: " . mysqli_error($conn);
 }
 
