@@ -1,0 +1,23 @@
+Ingresar fecha de nacimiento:
+día
+mes
+año
+
+Ingresar fecha actual:
+día
+mes
+año
+
+Verificar si las fechas son válidas
+
+SI la fecha es inválida
+    Mostrar error
+SINO
+    Calcular edad
+
+    Si todavía no cumplió años este año
+        Restar 1
+
+    Mostrar edad final
+
+FIN
