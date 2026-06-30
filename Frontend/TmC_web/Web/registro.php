@@ -9,7 +9,7 @@ $password_hash = password_hash(
     PASSWORD_DEFAULT
 );
 
-$sql = "INSERT INTO USUARIO
+$sql = "INSERT INTO usuario
 (
     username,
     email,
