@@ -5,7 +5,7 @@ include("conexion.php");
 $username = $_POST['usuario'];
 $password = $_POST['contraseña'];
 
-$sql = "SELECT * FROM USUARIO
+$sql = "SELECT * FROM usuario
         WHERE username = '$username'";
 
 $resultado = mysqli_query($conn, $sql);
