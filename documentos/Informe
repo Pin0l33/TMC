@@ -1,30 +1,55 @@
-TecKnical May Cry
-Mattia Federico, Ferrari Ulises, Delpino Lucas, Orue Maximo
-Escuela De Educación Secundaria N°1
-Curso: Laboratorio de Programación 5° 3° A-B Profesores: Mansilla Muñoz York E. / Ganduglia Yamil Fecha: 11/3/2026
+# TecKnical May Cry
 
+**Mattia Federico**
+**Ferrari Ulises**
+**Delpino Lucas**
+**Orue Máximo**
 
+Escuela de Educación Secundaria Técnica N.° 1
+Laboratorio de Programación – 5.° 3.° A-B
+Profesores: Mansilla Muñoz York E. y Ganduglia Yamil
+11 de marzo de 2026
 
+---
 
-TecKnical May Cry 
-Introducción 
-Este trabajo tiene como objetivo presentar un proyecto educativo que englobe las distintas materias del departamento de programación de 5to año, E.E.S.T N1, con el fin de aprobar la materia de programación.
-La mejor manera de englobar todas esas materia era con la creación de un videojuego
+# Introducción
 
+El presente trabajo tiene como objetivo desarrollar y presentar un proyecto educativo integrador que reúna los conocimientos adquiridos en las distintas materias pertenecientes al departamento de programación de 5.° año de la Escuela de Educación Secundaria Técnica N.° 1.
 
-Desarrollo 
-TecKnical May Cry es el nombre del videojuego creado por nuestro grupo. El juego tiene varias inspiraciones como la del “Pokemon rojo fuego 2004” para la inspiración del mapa y del “five nigths at freddys” para el minijuego.
-El juego tiene lenguaje de C# en el programa de Virtual Studio Code y con el lenguaje de HTML para crear la página web, también en Virtual Studio Code
+Con el propósito de aplicar los contenidos aprendidos durante el ciclo lectivo, se decidió realizar un videojuego como proyecto principal. Esta propuesta permitió combinar áreas como programación, diseño web, lógica computacional y creatividad, favoreciendo además el trabajo en equipo y la resolución de problemas.
 
+El videojuego desarrollado recibe el nombre de *TecKnical May Cry* y representa una experiencia interactiva creada íntegramente por los integrantes del grupo.
 
-Conclusión
- Por el momento concluimos que es un proyecto entretenido que nos ayuda a superar dificultades como problemas creativos y problemas estructurales, estos problemas nos ayudan a formar carácter y  aprender a trabajar con eso.
+# Desarrollo
 
+*TecKnical May Cry* es un videojuego desarrollado por nuestro equipo utilizando diferentes herramientas y lenguajes de programación. Para la programación principal del juego se utilizó el lenguaje C#, mientras que para el desarrollo de la página web se empleó HTML. Todo el proyecto fue realizado mediante el entorno de desarrollo Visual Studio Code.
 
-Referencias 
-satoshi tajiri (2004).Pokemon rojo fuego .Nintendo. 
-https://es.wikipedia.org/wiki/Pok%C3%A9mon_rojo_fuego_y_Pok%C3%A9mon_verde_hoja
+Durante el proceso de creación, el equipo tomó inspiración de distintos videojuegos reconocidos. Por un lado, el diseño y la estructura del mapa estuvieron influenciados por *Pokémon Rojo Fuego* (Nintendo, 2004). Por otro lado, el sistema de minijuegos y la ambientación se inspiraron en *Five Nights at Freddy’s* (Cawthon, 2014).
 
+El desarrollo del proyecto implicó múltiples etapas, entre ellas:
 
-scott cawthon (2014).five nigths at freddys. juego indie creado solo por el 
-https://es.wikipedia.org/wiki/Scott_Cawthon
+* Diseño conceptual del videojuego.
+* Planificación de mecánicas y escenarios.
+* Programación de funcionalidades.
+* Creación de la interfaz web.
+* Pruebas y corrección de errores.
+
+Además de los conocimientos técnicos, el proyecto permitió fortalecer habilidades relacionadas con la organización grupal, la comunicación y la resolución de dificultades creativas y estructurales.
+
+# Conclusión
+
+Se concluye que *TecKnical May Cry* representa una experiencia educativa enriquecedora y entretenida para los integrantes del grupo. El desarrollo del videojuego permitió aplicar conocimientos adquiridos en las materias de programación y enfrentar distintos desafíos técnicos y creativos.
+
+Asimismo, el proyecto contribuyó al desarrollo de habilidades fundamentales como el trabajo en equipo, la responsabilidad, la perseverancia y la capacidad de adaptación frente a problemas estructurales y de diseño.
+
+Finalmente, esta experiencia demostró la importancia de los proyectos prácticos como herramienta de aprendizaje, ya que permiten integrar teoría y práctica en un contexto dinámico e innovador.
+
+# Referencias
+
+Cawthon, S. (2014). *Five Nights at Freddy’s* [Videojuego]. Scott Cawthon.
+
+Nintendo. (2004). *Pokémon Rojo Fuego* [Videojuego]. Nintendo.
+
+Wikipedia contributors. (s. f.). *Pokémon rojo fuego y Pokémon verde hoja*. Wikipedia. https://es.wikipedia.org/wiki/Pok%C3%A9mon_rojo_fuego_y_Pok%C3%A9mon_verde_hoja
+
+Wikipedia contributors. (s. f.). *Scott Cawthon*. Wikipedia. https://es.wikipedia.org/wiki/Scott_Cawthon
