@@ -1,0 +1,49 @@
+# Proyecto-TMC-Colegio
+  Proyecto: Juego del Colegio
+
+Descripción:
+Este proyecto consiste en un videojuego 2D desarrollado en Unity, donde el jugador puede explorar un colegio, interactuar con NPCs y acceder a distintos minijuegos.
+
+El objetivo es crear una experiencia interactiva inspirada en juegos clásicos, integrando sistemas de diálogo, movimiento y eventos y "publicitar el colegio".
+
+---
+
+Funcionalidades actuales:
+- Movimiento en 4 direcciones
+- Sistema de animaciones
+- Sistema de diálogo con NPCs
+- Opciones de decisión (Sí / No)
+- Interfaz gráfica (UI)
+- Sistema de escenas
+
+---
+
+Tecnologías utilizadas:
+- Unity (C#)
+- HTML (para integración WebGL)
+- Git y GitHub (control de versiones)
+
+---
+
+Objetivo del proyecto:
+Desarrollar un videojuego funcional que luego será integrado en una página web, cumpliendo con los requisitos académicos de la materia Laboratorio de Programación.
+
+
+
+Estado del proyecto
+🔧 En desarrollo
+
+
+
+  Autores:
+- Lucas Del Pino
+- Maximo Orue
+- Federico Matia
+- Ulises Ferrari
+
+ Progreso
+-  Menú principal (listo)
+-  Sistema de movimiento (listo)
+-  Sistema de diálogo (listo)
+-  Interfaz básica (listo)
+-  Minijuegos en desarrollo (en proceso)
