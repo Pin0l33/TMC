@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FNAE/Lemos.unity
     guid: de07518691e64d141b2f69be9abab4d6
+  - enabled: 1
+    path: Assets/Scenes/juego/Galeria.unity
+    guid: 90b99fbf0eda34848aef5af402cdd396
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
