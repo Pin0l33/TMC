@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     private int lineIndex;
 
     private ProfessorNPC currentNPC;
-    private ProfessorNPC nearbyNPC;   // NUEVO: quién está en rango ahora mismo
+    private ProfessorNPC nearbyNPC;
     private Coroutine typingCoroutine;
     private Coroutine blinkCoroutine;
 
@@ -38,12 +38,12 @@ public class DialogueManager : MonoBehaviour
         optionsPanel.SetActive(false);
     }
 
-    public void SetNearbyNPC(ProfessorNPC npc)      // NUEVO
+    public void SetNearbyNPC(ProfessorNPC npc)
     {
         nearbyNPC = npc;
     }
 
-    public void ClearNearbyNPC(ProfessorNPC npc)    // NUEVO
+    public void ClearNearbyNPC(ProfessorNPC npc)
     {
         if (nearbyNPC == npc) nearbyNPC = null;
     }
@@ -52,7 +52,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (!IsDialogueActive)
         {
-            // NUEVO: acá es el ÚNICO lugar donde se lee E para arrancar el diálogo
             if (nearbyNPC != null && Input.GetKeyDown(KeyCode.E))
             {
                 var npc = nearbyNPC;

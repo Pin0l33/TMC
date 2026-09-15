@@ -27,19 +27,29 @@ public class SceneTransitionManager : MonoBehaviour
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+{
+    if (string.IsNullOrEmpty(pendingSpawnId)) return;
+
+    string zoneToShow = null;
+
+    foreach (var sp in FindObjectsOfType<SpawnPoint>())
     {
-        if (string.IsNullOrEmpty(pendingSpawnId)) return;
-
-        foreach (var sp in FindObjectsOfType<SpawnPoint>())
+        if (sp.Id == pendingSpawnId)
         {
-            if (sp.Id == pendingSpawnId)
-            {
-                player.position = sp.transform.position;
-                break;
-            }
+            player.position = sp.transform.position;
+            zoneToShow = sp.ZoneName;
+            break;
         }
-        pendingSpawnId = null;
-
-        FadeController.Instance.PlayFadeIn();
     }
-}
+
+    Debug.Log($"[DEBUG] pendingSpawnId={pendingSpawnId} | zoneToShow='{zoneToShow}' | escena cargada={scene.name}");   // NUEVO
+
+    pendingSpawnId = null;
+
+    FadeController.Instance.PlayFadeIn(() =>
+    {
+        Debug.Log($"[DEBUG] Ejecutando callback, zoneToShow='{zoneToShow}', ZoneBanner.Instance={(ZoneBanner.Instance != null ? "existe" : "NULL")}");   // NUEVO
+        if (!string.IsNullOrEmpty(zoneToShow) && ZoneBanner.Instance != null)
+            ZoneBanner.Instance.MostrarZona(zoneToShow);
+    });
+}}

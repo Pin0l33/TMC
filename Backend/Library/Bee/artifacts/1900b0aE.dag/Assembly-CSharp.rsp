@@ -426,6 +426,8 @@
 "Assets/scripts/JuegoPrincipal/DoorTrigger.cs"
 "Assets/scripts/JuegoPrincipal/FadeController.cs"
 "Assets/scripts/JuegoPrincipal/IntroManager.cs"
+"Assets/scripts/JuegoPrincipal/LocalizationManager.cs"
+"Assets/scripts/JuegoPrincipal/LocalizedText.cs"
 "Assets/scripts/JuegoPrincipal/MenuPrincipal.cs"
 "Assets/scripts/JuegoPrincipal/MovimientoDeJugador.cs"
 "Assets/scripts/JuegoPrincipal/PauseManager.cs"
@@ -438,7 +440,11 @@
 "Assets/scripts/JuegoPrincipal/TransicionEscena.cs"
 "Assets/scripts/JuegoPrincipal/ZoneBanner.cs"
 "Assets/scripts/JuegoPrincipal/Zonetrigger.cs"
+"Assets/scripts/JuegoPrincipal/papu.cs"
 "Assets/scripts/Menu/ButtonHoverEffect.cs"
+"Assets/scripts/Menu/LanguageSelectorUI.cs"
+"Assets/scripts/Menu/VolumeController.cs"
+"Assets/scripts/Menu/algoe.cs"
 -langversion:9.0
 /deterministic
 /optimize+

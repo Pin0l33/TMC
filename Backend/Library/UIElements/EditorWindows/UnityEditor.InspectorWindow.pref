@@ -30,7 +30,31 @@ MonoBehaviour:
   - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-spritesTitilar__unity-vertical-collection-scroll-view__Slider__UnityEngine.UIElements.Scroller+ScrollerSlider
   - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-vertical-collection-scroll-view__UnityEngine.UIElements.ScrollView
   - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-vertical-collection-scroll-view__Slider__UnityEngine.UIElements.Scroller+ScrollerSlider
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-dialogueLinesEs__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-dialogueLinesEs__unity-vertical-collection-scroll-view__UnityEngine.UIElements.ScrollView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-dialogueLinesEs__unity-vertical-collection-scroll-view__Slider__UnityEngine.UIElements.Scroller+ScrollerSlider
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-dialogueLinesEn__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-dialogueLinesEn__unity-vertical-collection-scroll-view__UnityEngine.UIElements.ScrollView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-dialogueLinesEn__unity-vertical-collection-scroll-view__Slider__UnityEngine.UIElements.Scroller+ScrollerSlider
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-optionsEs__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-optionsEs__unity-vertical-collection-scroll-view__UnityEngine.UIElements.ScrollView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-optionsEs__unity-vertical-collection-scroll-view__Slider__UnityEngine.UIElements.Scroller+ScrollerSlider
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-optionsEn__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-optionsEn__unity-vertical-collection-scroll-view__UnityEngine.UIElements.ScrollView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-optionsEn__unity-vertical-collection-scroll-view__Slider__UnityEngine.UIElements.Scroller+ScrollerSlider
   m_Values:
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
+  - '{}'
   - '{}'
   - '{}'
   - '{}'

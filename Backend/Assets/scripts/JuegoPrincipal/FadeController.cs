@@ -36,12 +36,12 @@ public class FadeController : MonoBehaviour
         onComplete?.Invoke();
     }
 
-    public void PlayFadeIn()
+    public void PlayFadeIn(Action onComplete = null)
     {
-        StartCoroutine(FadeInRoutine());
+        StartCoroutine(FadeInRoutine(onComplete));
     }
 
-    private IEnumerator FadeInRoutine()
+    private IEnumerator FadeInRoutine(Action onComplete)
     {
         fadeCanvasGroup.alpha = 1f;
         float t = 0f;
@@ -53,5 +53,6 @@ public class FadeController : MonoBehaviour
         }
         fadeCanvasGroup.alpha = 0f;
         fadeCanvasGroup.gameObject.SetActive(false);
+        onComplete?.Invoke();
     }
 }

@@ -10,7 +10,7 @@ public class ZoneBanner : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TMP_Text zoneName;
 
-    [Header("Animación")]
+    [Header("Animacion")]
     [SerializeField] private float fadeInDuration = 0.35f;
     [SerializeField] private float visibleDuration = 1.5f;
     [SerializeField] private float fadeOutDuration = 0.5f;
@@ -22,6 +22,12 @@ public class ZoneBanner : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
 
         rectTransform = GetComponent<RectTransform>();
