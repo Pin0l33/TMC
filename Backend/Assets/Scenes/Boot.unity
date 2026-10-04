@@ -908,6 +908,7 @@ Transform:
   - {fileID: 838465357}
   - {fileID: 798065200}
   - {fileID: 1125575321}
+  - {fileID: 656440866}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &478571685
@@ -1110,8 +1111,8 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1119,18 +1120,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1211,6 +1200,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CamaraSeguir
   jugador: {fileID: 723618050}
   velocidad: 5
+--- !u!81 &519420034
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
 --- !u!1 &519708449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,12 +1586,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656440863}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 218.5695, y: 141.97823, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 275.86743, y: 139.59282, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 478571684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723618048
 GameObject:
@@ -1704,6 +1701,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   velocidad: 5
+  sfx: {fileID: 656440864}
+  footstepClips:
+  - {fileID: 8300000, guid: 7d4ec816965856f4e845ee652c37ec09, type: 3}
+  - {fileID: 8300000, guid: d7ea13e31f5f952459832d835cc267b4, type: 3}
+  footstepInterval: 0.35
+  pitchMin: 0.95
+  pitchMax: 1.05
 --- !u!61 &723618055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4515,6 +4519,11 @@ MonoBehaviour:
   optionsText:
   - {fileID: 913264950}
   - {fileID: 490774627}
+  sfx: {fileID: 656440864}
+  dialogueBlip: {fileID: 8300000, guid: 132f9670e0c3e3e468dc32a2b1c1ba0f, type: 3}
+  blipMinPitch: 0.9
+  blipMaxPitch: 1.1
+  blipVolume: 0.4
 --- !u!1 &2098325982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,4 +4687,3 @@ SceneRoots:
   - {fileID: 1883505642}
   - {fileID: 1529968517}
   - {fileID: 478571684}
-  - {fileID: 656440866}

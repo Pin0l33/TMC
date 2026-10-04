@@ -18,6 +18,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private TMP_Text[] optionsText;
 
+    [Header("SFX")]
+    [SerializeField] private ReproducirSFX sfx;
+    [SerializeField] private AudioClip dialogueBlip;
+    [SerializeField] private float blipMinPitch = 0.9f;
+    [SerializeField] private float blipMaxPitch = 1.1f;
+    [SerializeField] private float blipVolume = 0.4f;
+
     private float typingTime = 0.05f;
     private bool isTyping;
     private bool isChoosing;
@@ -128,20 +135,27 @@ public class DialogueManager : MonoBehaviour
     }
 
     private IEnumerator ShowLine()
+{
+    isTyping = true;
+    dialogueText.text = "";
+    HideContinueIndicator();
+
+    int charCount = 0;
+
+    foreach (char ch in currentNPC.DialogueLines[lineIndex])
     {
-        isTyping = true;
-        dialogueText.text = "";
-        HideContinueIndicator();
+        dialogueText.text += ch;
 
-        foreach (char ch in currentNPC.DialogueLines[lineIndex])
-        {
-            dialogueText.text += ch;
-            yield return new WaitForSecondsRealtime(typingTime);
-        }
+        if (!char.IsWhiteSpace(ch) && dialogueBlip != null && sfx != null && charCount % 2 == 0)
+            sfx.PlayInterrupting(dialogueBlip, blipMinPitch, blipMaxPitch, blipVolume);
 
-        isTyping = false;
-        ShowContinueIndicator();
+        charCount++;
+        yield return new WaitForSecondsRealtime(typingTime);
     }
+
+    isTyping = false;
+    ShowContinueIndicator();
+}
 
     private void ShowOptions()
     {
