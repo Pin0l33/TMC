@@ -135,27 +135,27 @@ public class DialogueManager : MonoBehaviour
     }
 
     private IEnumerator ShowLine()
-{
-    isTyping = true;
-    dialogueText.text = "";
-    HideContinueIndicator();
-
-    int charCount = 0;
-
-    foreach (char ch in currentNPC.DialogueLines[lineIndex])
     {
-        dialogueText.text += ch;
+        isTyping = true;
+        dialogueText.text = "";
+        HideContinueIndicator();
 
-        if (!char.IsWhiteSpace(ch) && dialogueBlip != null && sfx != null && charCount % 2 == 0)
-            sfx.PlayInterrupting(dialogueBlip, blipMinPitch, blipMaxPitch, blipVolume);
+        int charCount = 0;
 
-        charCount++;
-        yield return new WaitForSecondsRealtime(typingTime);
+        foreach (char ch in currentNPC.DialogueLines[lineIndex])
+        {
+            dialogueText.text += ch;
+
+            if (!char.IsWhiteSpace(ch) && dialogueBlip != null && sfx != null && charCount % 2 == 0)
+                sfx.PlayInterrupting(dialogueBlip, blipMinPitch, blipMaxPitch, blipVolume);
+
+            charCount++;
+            yield return new WaitForSecondsRealtime(typingTime);
+        }
+
+        isTyping = false;
+        ShowContinueIndicator();
     }
-
-    isTyping = false;
-    ShowContinueIndicator();
-}
 
     private void ShowOptions()
     {
@@ -211,7 +211,7 @@ public class DialogueManager : MonoBehaviour
         blinkCoroutine = StartCoroutine(BlinkIndicator());
     }
 
-    private void HideContinueIndicator()
+    public void HideContinueIndicator()
     {
         if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
         continueIndicator.SetActive(false);

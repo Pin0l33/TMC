@@ -7,6 +7,12 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private string targetScene;
     [SerializeField] private string targetSpawnId;
 
+    [Header("Guardián de zona (opcional)")]
+    [SerializeField] private BossGuardian guardian;
+    [SerializeField] private string zoneId;
+    [SerializeField, TextArea(2, 3)] private string challengeLineEs;
+    [SerializeField, TextArea(2, 3)] private string challengeLineEn;
+
     [Header("UI")]
     [SerializeField] private GameObject arrowPrompt;
     [SerializeField] private float blinkInterval = 0.4f;
@@ -16,14 +22,41 @@ public class DoorTrigger : MonoBehaviour
 
     void Update()
     {
+        {
+    if (!MovimientoJugador.canMove) return;
+}
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            HideArrow();
-            FadeController.Instance.PlayFadeOut(() =>
+            if (guardian == null || ZoneAccessManager.Instance.IsUnlocked(zoneId))
             {
-                SceneTransitionManager.Instance.GoToScene(targetScene, targetSpawnId);
-            });
+                ProceedWithTransition();
+            }
+            else
+            {
+                HideArrow();
+                string line = LocalizationManager.Instance.CurrentLanguage == Language.Spanish
+                    ? challengeLineEs : challengeLineEn;
+                BattleManager.Instance.StartBattle(guardian, line, OnChallengeResult);
+            }
         }
+    }
+
+    private void OnChallengeResult(BattleState result)
+    {
+        if (result == BattleState.Won)
+        {
+            ZoneAccessManager.Instance.Unlock(zoneId);
+            ProceedWithTransition();
+        }
+    }
+
+    private void ProceedWithTransition()
+    {
+        HideArrow();
+        FadeController.Instance.PlayFadeOut(() =>
+        {
+            SceneTransitionManager.Instance.GoToScene(targetScene, targetSpawnId);
+        });
     }
 
     private void OnTriggerEnter2D(Collider2D other)

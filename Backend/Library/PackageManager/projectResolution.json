@@ -9,6 +9,16 @@
     "C:\\Program Files\\Unity\\Hub\\Editor\\6000.3.11f1-x86_64\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
+    "com.coplaydev.unity-mcp@https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main": {
+      "name": "com.coplaydev.unity-mcp",
+      "displayName": "MCP for Unity",
+      "resolvedPath": "C:\\Users\\Aglutofe\\OneDrive\\Desktop\\el otro tmc\\TMC\\Backend\\Library\\PackageCache\\com.coplaydev.unity-mcp@da7b9ae4aeeb",
+      "fingerprint": "da7b9ae4aeeb678bf3ec4a43bbd0d8e19b6bc54b",
+      "editorCompatibility": "2021.3.0a1",
+      "version": "10.3.0",
+      "source": "git",
+      "testable": false
+    },
     "com.unity.2d.sprite@1.0.0": {
       "name": "com.unity.2d.sprite",
       "displayName": "2D Sprite",
@@ -324,6 +334,36 @@
       "displayName": "Hierarchy Core",
       "resolvedPath": "C:\\Users\\Aglutofe\\OneDrive\\Desktop\\el otro tmc\\TMC\\Backend\\Library\\PackageCache\\com.unity.modules.hierarchycore",
       "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.nuget.newtonsoft-json@3.2.2": {
+      "name": "com.unity.nuget.newtonsoft-json",
+      "displayName": "Newtonsoft Json",
+      "resolvedPath": "C:\\Users\\Aglutofe\\OneDrive\\Desktop\\el otro tmc\\TMC\\Backend\\Library\\PackageCache\\com.unity.nuget.newtonsoft-json@4dfd81071c64",
+      "fingerprint": "4dfd81071c6475bb9c114f920bfb4e3fc5e28c6a",
+      "editorCompatibility": "2018.4.0a1",
+      "version": "3.2.2",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.test-framework@1.6.0": {
+      "name": "com.unity.test-framework",
+      "displayName": "Test Framework",
+      "resolvedPath": "C:\\Users\\Aglutofe\\OneDrive\\Desktop\\el otro tmc\\TMC\\Backend\\Library\\PackageCache\\com.unity.test-framework@0b7a23ab2e1d",
+      "fingerprint": "0b7a23ab2e1d74441a5afdffa63f417929756957",
+      "editorCompatibility": "6000.0.44f1",
+      "version": "1.6.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.ext.nunit@2.0.5": {
+      "name": "com.unity.ext.nunit",
+      "displayName": "Custom NUnit",
+      "resolvedPath": "C:\\Users\\Aglutofe\\OneDrive\\Desktop\\el otro tmc\\TMC\\Backend\\Library\\PackageCache\\com.unity.ext.nunit@d8c07649098d",
+      "fingerprint": "d8c07649098d3936da4c8ab500960c1776b44592",
+      "editorCompatibility": "2019.4.0a1",
+      "version": "2.0.5",
       "source": "builtin",
       "testable": false
     }
