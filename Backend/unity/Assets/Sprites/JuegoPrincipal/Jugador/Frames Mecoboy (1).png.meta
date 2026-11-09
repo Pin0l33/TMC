@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 25054a5da6645f14faa28a8cc5e71051
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4811071650698293692
+    second: Frames Mecoboy (1)_0
+  - first:
+      213: 1002180244525237756
+    second: Frames Mecoboy (1)_1
+  - first:
+      213: -3167088309744136136
+    second: Frames Mecoboy (1)_2
+  - first:
+      213: -6174656180459265806
+    second: Frames Mecoboy (1)_3
+  - first:
+      213: 3850536242367049905
+    second: Frames Mecoboy (1)_4
+  - first:
+      213: 8339134616413544334
+    second: Frames Mecoboy (1)_5
+  - first:
+      213: -6761360846594325575
+    second: Frames Mecoboy (1)_6
+  - first:
+      213: -7717935914899569625
+    second: Frames Mecoboy (1)_7
+  - first:
+      213: 8388331640410240242
+    second: Frames Mecoboy (1)_8
+  - first:
+      213: 2245961531537232248
+    second: Frames Mecoboy (1)_9
+  - first:
+      213: -817787153029880176
+    second: Frames Mecoboy (1)_10
+  - first:
+      213: 5405754482096713210
+    second: Frames Mecoboy (1)_11
+  - first:
+      213: -1482437492856979724
+    second: Frames Mecoboy (1)_12
+  - first:
+      213: 3059148400177542513
+    second: Frames Mecoboy (1)_13
+  - first:
+      213: 5410769698454822379
+    second: Frames Mecoboy (1)_14
+  - first:
+      213: 8620245188462451120
+    second: Frames Mecoboy (1)_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 103
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e0d27e2d3ab3db0800000000000000
+      internalID: -4811071650698293692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 78
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf547d36f9578ed00800000000000000
+      internalID: 1002180244525237756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 103
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 830986556fd3c04d0800000000000000
+      internalID: -3167088309744136136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_3
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 78
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f02e892be63f4aa0800000000000000
+      internalID: -6174656180459265806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 103
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b03e09bf4adf6530800000000000000
+      internalID: 3850536242367049905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 78
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f1e7140ce8ab370800000000000000
+      internalID: 8339134616413544334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_6
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 103
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b3c28c1222da22a0800000000000000
+      internalID: -6761360846594325575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 78
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7248e214d2264e490800000000000000
+      internalID: -7717935914899569625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 28
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f472d40f27596470800000000000000
+      internalID: 8388331640410240242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 53
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87118720d124b2f10800000000000000
+      internalID: 2245961531537232248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_10
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 28
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 096a6c9cae2a6a4f0800000000000000
+      internalID: -817787153029880176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_11
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 53
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afda9508f09150b40800000000000000
+      internalID: 5405754482096713210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 28
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fef98c54f25d6be0800000000000000
+      internalID: -1482437492856979724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_13
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 53
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17579cb0347447a20800000000000000
+      internalID: 3059148400177542513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_14
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 28
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bedd8dd8f5ae61b40800000000000000
+      internalID: 5410769698454822379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frames Mecoboy (1)_15
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 53
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9131fa35341a770800000000000000
+      internalID: 8620245188462451120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Frames Mecoboy (1)_0: -4811071650698293692
+      Frames Mecoboy (1)_1: 1002180244525237756
+      Frames Mecoboy (1)_10: -817787153029880176
+      Frames Mecoboy (1)_11: 5405754482096713210
+      Frames Mecoboy (1)_12: -1482437492856979724
+      Frames Mecoboy (1)_13: 3059148400177542513
+      Frames Mecoboy (1)_14: 5410769698454822379
+      Frames Mecoboy (1)_15: 8620245188462451120
+      Frames Mecoboy (1)_2: -3167088309744136136
+      Frames Mecoboy (1)_3: -6174656180459265806
+      Frames Mecoboy (1)_4: 3850536242367049905
+      Frames Mecoboy (1)_5: 8339134616413544334
+      Frames Mecoboy (1)_6: -6761360846594325575
+      Frames Mecoboy (1)_7: -7717935914899569625
+      Frames Mecoboy (1)_8: 8388331640410240242
+      Frames Mecoboy (1)_9: 2245961531537232248
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
