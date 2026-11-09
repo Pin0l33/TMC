@@ -4,6 +4,10 @@
 #
 # Recommended: add any editor/OS/tool-specific ignore rules from the Global/ templates as needed.
 # See: https://github.com/github/gitignore/tree/main/Global
+
+# Ejecutables y configuración local del editor
+*.exe
+.vscode/
 #
 .utmp/
 /[Ll]ibrary/

@@ -1,178 +1,223 @@
-# CHANGELOG — Teknical May Cry (TMC)
+﻿# Changelog
 
-Todos los cambios importantes realizados en el proyecto se registran en este documento.
+Se registran aquí los cambios relevantes del proyecto. Las fechas históricas se contrastaron con el historial de commits de GitHub. Como el proyecto no tiene tags de versión de software, las entradas previas se conservan como historial sin asignarles números SemVer. En adelante, agrupá los cambios por versión publicada y usá `Unreleased` para trabajo todavía no publicado.
 
-## [2026] — Historial de desarrollo
+## [Unreleased]
 
-### 31 de marzo
-- Se realizó la configuración inicial del proyecto en Unity.
-- Se limpiaron archivos innecesarios del repositorio.
-- Se modificó y actualizó el README del proyecto.
+### Added
 
-### 4 de mayo
-- Se reorganizó la estructura general del proyecto.
-- Se agregaron contenidos relacionados con el juego a la página web.
-- Se realizaron cambios en la estética y el diseño de la página.
-- Se agregaron escenas relacionadas con el minijuego FNAE.
-- Se avanzó en la jugabilidad del minijuego, incluyendo las transiciones para comenzar la primera noche.
-- Se corrigieron elementos de configuración de Unity y la estructura de Packages.
+- Se incorporaron al proyecto de Unity scripts e integración de entrada para joystick Arduino; el historial registra esta incorporación el 9 de noviembre de 2026.
+- Se ampliaron recursos y documentación de la carpeta de campo grupal en el commit del 9 de noviembre de 2026.
 
-### 7 de mayo
-- Se incorporaron nuevos temas y contenidos relacionados con el proyecto en la página web.
+## Historial de desarrollo sin versión
 
-### 8 de mayo
-- Se actualizaron los integrantes mostrados en la información del equipo.
+### 2026-11-05
 
-### 8 de mayo
-- Se agregó el informe del proyecto.
+#### Added
 
-### 9 y 10 de mayo
-- Se finalizó la primera versión de la página web.
-- Se creó la presentación del proyecto.
-- Se agregó un código QR relacionado con el repositorio.
-- Se actualizó el nombre de la página principal a `index.html`.
-- Se modificaron elementos de la estructura HTML, incluyendo el uso de encabezados.
+- Se incorporaron manuales de usuario e instalación, documentación técnica y arquitectura, e informes del proyecto.
+- Se completó y reorganizó el changelog a partir del historial disponible.
 
-### 11 de mayo
-- Se incorporó una versión casi finalizada de la demo del minijuego FNAE.
-- Se agregó una versión casi finalizada de la primera noche.
-- Se limpiaron archivos que no debían estar en el repositorio.
-- Se actualizaron las reglas del archivo `.gitignore`.
+### 2026-10-29
 
-### 12 de mayo
-- Se agregaron imágenes de los profesores a la página web.
-- Se incorporó información de los profesores en el sitio.
+#### Added
 
-### 11, 12 y 13 de junio
-- Se realizaron modificaciones visuales en la página web.
-- Se actualizaron archivos y contenidos del sitio.
+- Se incorporaron recursos, escenas y contenido relacionados con objetos, inventario, diálogos y combate, según los cambios agrupados en los commits de esa fecha.
 
-### 14 de junio
-- Se comenzó a desarrollar el sistema de inicio de sesión.
+### 2026-10-22
 
-### 24 de junio
-- Se realizaron mejoras generales en la página web.
-- Se modificaron los archivos de conexión a la base de datos.
-- Se actualizaron los archivos relacionados con el registro de usuarios.
-- Se modificó el archivo `.gitignore`.
+#### Added
 
-### 25 de junio
-- Se realizó la primera implementación de la base de datos del proyecto.
+- Se añadió documentación del joystick y del hardware del proyecto.
 
-### 26 de junio
-- Se eliminó una versión antigua del directorio de la página web.
+### 2026-10-04
 
-### 27 de junio
-- Se creó la estructura para las actividades de Laboratorio de Programación.
-- Se incorporaron las carpetas de Backend y Frontend.
-- Se agregó la estructura inicial para actividades de estructuras, structs y punteros.
-- Se implementó una calculadora de edad en C++.
-- Se implementó una calculadora de edad en Python.
-- Se resolvieron ejercicios de suma recursiva, búsqueda en vectores e intercambio de valores mediante punteros.
-- Se organizaron las ramas de desarrollo y principal mediante merges.
+#### Added
 
-### 28 de junio
-- Se implementó un nuevo mapa para el juego.
-- Se agregaron diagramas de flujo a la documentación.
+- Se incorporaron efectos de sonido al juego.
 
-### 30 de junio
-- Se corrigieron consultas SQL relacionadas con el nombre de las tablas.
-- Se solucionaron diferencias entre mayúsculas y minúsculas en los nombres de tablas.
-- Se actualizaron archivos de conexión a la base de datos.
-- Se eliminaron secciones de tarjetas de juegos que ya no se utilizaban en la galería.
+### 2026-10-01
 
-### 1 de julio
-- Se agregó una primera versión del Aula 1.
-- Se actualizaron documentos del proyecto.
-- Se incorporaron cambios para la presentación del proyecto.
+#### Changed
 
-### 16 de julio
+- Se reorganizaron directorios y componentes web/PHP.
+
+#### Removed
+
+- Se retiraron archivos PHP antiguos y versiones previas de directorios, según el historial de esa fecha.
+
+### 2026-09-20
+
+#### Added
+
+- Se incorporó el archivo de licencia MIT. La licencia se renombró a `LICENSE` ese mismo día.
+
+### 2026-09-15
+
+#### Added
+
+- Se incorporaron un menú de pausa y opciones de idioma, según los commits de esa fecha.
+
+### 2026-09-13
+
+#### Added
+
+- Se añadió material complementario y se actualizó el informe técnico.
+
+### 2026-09-12
+
+#### Added
+
+- Se añadieron animaciones de movimiento, zonas del mapa, puntos de aparición y colliders, de acuerdo con el historial del día.
+
+### 2026-09-11
+
+#### Changed
+
+- Se actualizaron elementos del HUD y recursos de animación, y se integraron cambios del proyecto.
+
+### 2026-09-10
+
+#### Changed
+
+- Se reorganizaron archivos del frontend y recursos del proyecto Unity.
+
+### 2026-09-09
+
+#### Changed
+
+- Se reorganizó documentación y se actualizaron archivos del README.
+
+### 2026-08-20
+
+#### Added
+
+- Se incorporaron cambios en el patio, una galería y animaciones, según los commits de agosto.
+
+### 2026-07-16
+
+#### Changed
+
 - Se reemplazaron archivos HTML por PHP en la página web.
 
-### 20 de agosto
-- Se incorporó una nueva versión del patio.
-- Se agregó una galería al patio y se incorporaron animaciones.
-- Se agregaron elementos gráficos relacionados con Gastón, Hsia y Robellito.
+### 2026-07-01
 
-### 9 de septiembre
-- Se reorganizó la documentación dentro de la carpeta `docs`.
-- Se actualizó el README del proyecto.
-- Se eliminaron carpetas de actividades anteriores.
+#### Added
 
-### 10 de septiembre
-- Se reorganizaron las carpetas del proyecto web.
-- Se realizaron cambios en la ubicación y organización de los archivos del frontend.
-- Se incorporaron nuevos recursos gráficos para el juego.
-- Se agregó una moneda animada en pixel art.
-- Se incorporaron los frames necesarios para la animación de la moneda.
-- Se agregó un engranaje para el menú del juego.
-- Se diseñó un cursor azul en pixel art.
-- Se avanzó con las aulas 1 y 2, incluyendo distintos modelos de mesas y sillas.
-- Se agregó y actualizó la licencia MIT.
+- Se incorporaron una primera versión del Aula 1 y materiales de presentación/documentación.
 
-### 11 de septiembre
-- Se realizaron mejoras en el HUD del juego.
-- Se incorporaron recursos para la animación de la moneda.
-- Se resolvieron conflictos de archivos durante la integración de cambios.
-- Se limpiaron carpetas y archivos del proyecto Unity que ya no se necesitaban.
+### 2026-06-30
 
-### 12 de septiembre
-- Se agregó una nueva animación de movimiento del personaje.
-- Se incorporaron nuevas zonas del mapa.
-- Se agregaron puntos de aparición (*spawnpoints*).
-- Se incorporaron colliders para delimitar las zonas del escenario.
+#### Fixed
 
-### 13 de septiembre
-- Se agregó material complementario a la documentación.
-- Se incorporaron recursos gráficos de herramientas del pañol, incluyendo una lima en pixel art.
-- Se actualizó el informe técnico siguiendo el formato APA 7.
+- Se corrigieron consultas y referencias a tablas de la base de datos.
 
-### 15 de septiembre
-- Se agregó un menú de pausa.
-- Se incorporó un menú de opciones.
-- Se agregó la posibilidad de cambiar el idioma del juego.
+#### Removed
 
-### 17 de septiembre
-- Se corrigió el nombre del archivo README para mantener el formato correcto.
+- Se retiraron tarjetas de juegos que ya no se usaban en la galería.
 
-### 20 de septiembre
-- Se incorporó el archivo de licencia MIT con el nombre correspondiente.
-- Se realizaron modificaciones en los archivos de documentación del proyecto.
+### 2026-06-28
 
-### 29 de septiembre
-- Se agregaron y eliminaron archivos de prueba y elementos de organización del repositorio.
+#### Added
 
-### 1 de octubre
-- Se reorganizaron las carpetas del proyecto Unity y PHP.
-- Se crearon y modificaron directorios para separar los archivos del proyecto.
-- Se eliminaron versiones anteriores de archivos PHP del frontend y backend.
-- Se eliminaron archivos antiguos relacionados con el inicio de sesión, registro, perfil, galería y minijuego.
-- Se realizaron tareas de limpieza y reorganización del repositorio.
+- Se incorporó un mapa y diagramas de flujo en la documentación.
 
-### 4 de octubre
-- Se incorporaron nuevos efectos de sonido (SFX) al juego.
+### 2026-06-27
 
-### 22 de octubre
-- Se creó y agregó un informe relacionado con el joystick y el hardware del proyecto.
+#### Added
 
-### 29 de octubre
-- Se incorporaron nuevos recursos gráficos y animaciones.
-- Se agregaron recursos para objetos del juego, como alfajores y Coca-Cola.
-- Se incorporaron escenas y elementos relacionados con el kiosco y el taller.
-- Se agregaron recursos para el sistema de inventario y monedas.
-- Se incorporaron elementos para los diálogos del juego.
-- Se agregaron scripts y recursos relacionados con el sistema de combate contra jefes.
-- Se incorporaron sonidos para acciones del personaje y diálogos.
-- Se agregaron recursos gráficos para la interfaz de combate.
+- Se creó una estructura de actividades de LPR y se incorporaron ejercicios de programación en C++ y Python.
 
-### 5 de noviembre
-- Se incorporaron el Manual del Usuario y la Guía de Instalación.
-- Se agregó el Manual Técnico del Programador y la Arquitectura de Código.
-- Se actualizaron documentos e informes del proyecto.
-- Se reorganizaron archivos de documentación y carpetas del repositorio.
+#### Changed
+
+- Se organizaron las ramas de desarrollo y principal mediante integraciones registradas en el historial.
+
+### 2026-06-26
+
+#### Removed
+
+- Se retiró una versión antigua del directorio de la página web.
+
+### 2026-06-25
+
+#### Added
+
+- Se registró la primera implementación de la base de datos del proyecto.
+
+### 2026-06-24
+
+#### Changed
+
+- Se actualizaron componentes del sitio, registro y conexión con la base de datos, junto con reglas de `.gitignore`.
+
+### 2026-06-14
+
+#### Added
+
+- Se inició el desarrollo del sistema de inicio de sesión.
+
+### 2026-06-11 a 2026-06-13
+
+#### Changed
+
+- Se realizaron modificaciones visuales y actualizaciones del sitio web.
+
+### 2026-05-11 a 2026-05-12
+
+#### Added
+
+- Se incorporó una demo avanzada del minijuego FNAE y material de docentes para la página.
+
+#### Changed
+
+- Se limpiaron archivos y se actualizaron reglas de `.gitignore`.
+
+### 2026-05-09 a 2026-05-10
+
+#### Added
+
+- Se completó una primera versión del sitio, se creó la presentación y se agregó un QR al repositorio.
+
+#### Changed
+
+- Se actualizó el nombre de la página principal a `index.html` y se ajustó la estructura HTML.
+
+### 2026-05-08
+
+#### Added
+
+- Se agregó el informe del proyecto.
+
+#### Changed
+
+- Se actualizaron los integrantes mostrados en la información del equipo.
+
+### 2026-05-07
+
+#### Added
+
+- Se agregaron contenidos relacionados con el proyecto a la página web.
+
+### 2026-05-03 a 2026-05-04
+
+#### Added
+
+- Se incorporaron escenas y avances de jugabilidad del minijuego FNAE, incluidas transiciones hacia la primera noche.
+
+#### Changed
+
+- Se reorganizó la estructura general y se ajustaron aspectos visuales y de configuración de Unity.
+
+### 2026-03-31
+
+#### Added
+
+- Se configuró inicialmente el proyecto Unity.
+
+#### Changed
+
+- Se limpiaron archivos y se actualizó el README.
 
 ---
 
-*Proyecto Integrador Anual (P.I.A.) — 2026*  
-*Laboratorio de Programación (LPR)*  
-*EEST N.º 1 “Eduardo Ader” — Vicente López*
+Las entradas históricas resumen grupos de cambios relevantes; no representan una versión publicada ni sustituyen el historial completo de Git.
