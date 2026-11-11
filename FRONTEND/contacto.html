@@ -1,17 +1,28 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teknical may cry</title>
-    <link rel="icon" type="image/png" href="Logo TmC bg.png">
+    <link rel="icon" type="image/png" href="imagenes/Logo TmC bg.png">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <?php include 'nav.php'; ?>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Teknical May Cry</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="galeria.html">Juegos</a></li>
+                <li><a href="descarga.html">Descarga</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="login.html">Iniciar sesión</a></li>
+                <li><a href="registro.html">Registrarse</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <section class="contact-page">
