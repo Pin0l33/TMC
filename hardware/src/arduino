@@ -1,0 +1,60 @@
+const int ejeX = A0;
+const int ejeY = A1;
+
+const int botonInteractuar = 2;
+const int botonInventario = 3;
+
+bool anteriorInteractuar = HIGH;
+bool anteriorInventario = HIGH;
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(botonInteractuar, INPUT_PULLUP);
+  pinMode(botonInventario, INPUT_PULLUP);
+}
+
+void loop() {
+
+  // Leer joystick
+  int x = analogRead(ejeX);
+  int y = analogRead(ejeY);
+
+  // Movimiento en cuatro direcciones
+  if (y > 600) {
+    Serial.println("ARRIBA");
+  }
+  else if (y < 400) {
+    Serial.println("ABAJO");
+  }
+  else if (x < 400) {
+    Serial.println("IZQUIERDA");
+  }
+  else if (x > 600) {
+    Serial.println("DERECHA");
+  }
+  else {
+    Serial.println("QUIETO");
+  }
+
+  // Leer botones
+  bool estadoInteractuar = digitalRead(botonInteractuar);
+  bool estadoInventario = digitalRead(botonInventario);
+
+  // Botón D2: interactuar
+  if (anteriorInteractuar == HIGH &&
+      estadoInteractuar == LOW) {
+    Serial.println("INTERACTUAR");
+  }
+
+  // Botón D3: inventario
+  if (anteriorInventario == HIGH &&
+      estadoInventario == LOW) {
+    Serial.println("INVENTARIO");
+  }
+
+  anteriorInteractuar = estadoInteractuar;
+  anteriorInventario = estadoInventario;
+
+  delay(50);
+}
