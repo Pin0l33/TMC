@@ -18,31 +18,44 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private float blinkInterval = 0.4f;
 
     private bool isPlayerInRange;
+    private bool challengePromptOpen;
     private Coroutine blinkCoroutine;
 
     void Update()
     {
+        if (!MovimientoJugador.canMove || !isPlayerInRange || challengePromptOpen)
+            return;
+
+        if (EntradaJuego.GetInteractDown())
         {
-    if (!MovimientoJugador.canMove) return;
-}
-        if (isPlayerInRange && EntradaJuego.GetInteractDown())
-        {
-            if (guardian == null || ZoneAccessManager.Instance.IsUnlocked(zoneId))
+            // El combate de práctica contra Javi se puede repetir aunque
+            // la victoria anterior haya desbloqueado la zona Taller.
+            bool repeatableWorkshopBattle = guardian != null && zoneId == "Taller";
+
+            if (guardian == null ||
+                (!repeatableWorkshopBattle &&
+                 ZoneAccessManager.Instance != null &&
+                 ZoneAccessManager.Instance.IsUnlocked(zoneId)))
             {
                 ProceedWithTransition();
             }
             else
             {
                 HideArrow();
+                challengePromptOpen = true;
                 string line = LocalizationManager.IsSpanish
                     ? challengeLineEs
                     : (!string.IsNullOrEmpty(challengeLineEn) ? challengeLineEn : challengeLineEs);
                 ArduinoCompatibilityPrompt.Show("BossFight", () =>
                 {
+                    challengePromptOpen = false;
                     BattleManager.Instance.StartBattle(guardian, line, OnChallengeResult);
                 }, () =>
                 {
+                    challengePromptOpen = false;
                     MovimientoJugador.canMove = true;
+                    if (isPlayerInRange)
+                        ShowArrow();
                 });
             }
         }
@@ -50,10 +63,16 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnChallengeResult(BattleState result)
     {
+        challengePromptOpen = false;
         if (result == BattleState.Won)
         {
-            ZoneAccessManager.Instance.Unlock(zoneId);
+            if (ZoneAccessManager.Instance != null)
+                ZoneAccessManager.Instance.Unlock(zoneId);
             ProceedWithTransition();
+        }
+        else if (isPlayerInRange)
+        {
+            ShowArrow();
         }
     }
 

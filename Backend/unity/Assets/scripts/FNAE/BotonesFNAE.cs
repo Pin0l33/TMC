@@ -140,6 +140,7 @@ public class BotonFNAF : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
         else if (accion == "Exit")
         {
+            MovimientoJugador.canMove = true;
             SceneManager.LoadScene("juego");
         }
     }

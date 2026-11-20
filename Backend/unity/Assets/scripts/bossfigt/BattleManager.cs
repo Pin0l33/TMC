@@ -137,6 +137,8 @@ public class BattleManager : MonoBehaviour
 
     private System.Action<BattleState> onBattleComplete;
 
+    public bool IsBattleActive => battleOverlay != null && battleOverlay.activeSelf;
+
     void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
@@ -175,17 +177,28 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle(BossGuardian boss, string introLine = null, System.Action<BattleState> onComplete = null)
     {
+        if (boss == null || IsBattleActive)
+            return;
+
         DialogueManager.Instance.HideContinueIndicator();
 
+        Time.timeScale = 1f;
+        StopActiveBattleCoroutines();
+        ClearBullets();
+        boxJitter = Vector2.zero;
+        state = BattleState.None;
         currentBoss = boss;
         onBattleComplete = onComplete;
         battleOverlay.SetActive(true);
         MovimientoJugador.canMove = false;
 
-        PlayerHP.Instance.ResetHP();
+        PlayerHP.Instance.OnPlayerDown -= HandlePlayerDown;
+        PlayerHP.Instance.OnDamaged -= HandleDamaged;
+        PlayerHP.Instance.OnHPChanged -= HandleHPChangedForPulse;
         PlayerHP.Instance.OnPlayerDown += HandlePlayerDown;
         PlayerHP.Instance.OnDamaged += HandleDamaged;
         PlayerHP.Instance.OnHPChanged += HandleHPChangedForPulse;
+        PlayerHP.Instance.ResetHP();
 
         enemyHP = boss.MaxHP;
         currentPhase = 1;
@@ -197,6 +210,18 @@ public class BattleManager : MonoBehaviour
         if (bossPortraitImage != null)
             bossPortraitImage.enabled = true;   // el Animator ya se encarga de los frames
 
+        if (screenFlash != null) screenFlash.gameObject.SetActive(false);
+        if (critPopup != null) critPopup.SetActive(false);
+        if (slashEffectImage != null) slashEffectImage.gameObject.SetActive(false);
+        if (lowHpPulseOverlay != null) lowHpPulseOverlay.gameObject.SetActive(false);
+        if (damageNumberText != null) damageNumberText.gameObject.SetActive(false);
+        if (enemyMiniHPBack != null) enemyMiniHPBack.gameObject.SetActive(false);
+        if (enemyMiniHPFill != null) enemyMiniHPFill.gameObject.SetActive(false);
+        if (enemyMiniHPFill != null) enemyMiniHPFill.fillAmount = 1f;
+        if (fightBarPanel != null) fightBarPanel.SetActive(false);
+        if (turnMenu != null) turnMenu.SetActive(false);
+        if (soulRect != null) soulRect.anchoredPosition = Vector2.zero;
+        InitializeFightBar();
         SnapBox(wideBoxSize, wideBoxPos);
         HideFlavor();
         if (bossSpeechBox != null) bossSpeechBox.SetActive(false);
@@ -205,6 +230,23 @@ public class BattleManager : MonoBehaviour
         if (turnMenu != null) turnMenu.SetActive(false);
 
         StartCoroutine(BattleIntro(introLine));
+    }
+
+    private void StopActiveBattleCoroutines()
+    {
+        if (spawnRoutine != null) StopCoroutine(spawnRoutine);
+        if (fightMarkerRoutine != null) StopCoroutine(fightMarkerRoutine);
+        if (flavorRoutine != null) StopCoroutine(flavorRoutine);
+        if (enemyPhaseRoutine != null) StopCoroutine(enemyPhaseRoutine);
+        if (lowHpPulseRoutine != null) StopCoroutine(lowHpPulseRoutine);
+        if (hitAnimationRoutine != null) StopCoroutine(hitAnimationRoutine);
+
+        spawnRoutine = null;
+        fightMarkerRoutine = null;
+        flavorRoutine = null;
+        enemyPhaseRoutine = null;
+        lowHpPulseRoutine = null;
+        hitAnimationRoutine = null;
     }
 
     private IEnumerator BattleIntro(string introLine)
@@ -239,6 +281,9 @@ public class BattleManager : MonoBehaviour
 
     private void EndBattle(BattleState result)
     {
+        if (!IsBattleActive)
+            return;
+
         state = result;
         PlayerHP.Instance.OnPlayerDown -= HandlePlayerDown;
         PlayerHP.Instance.OnDamaged -= HandleDamaged;

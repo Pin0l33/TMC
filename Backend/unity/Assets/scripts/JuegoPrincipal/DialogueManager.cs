@@ -59,6 +59,15 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
+        // El prompt de compatibilidad tiene prioridad sobre NPCs cercanos;
+        // evita que ambos sistemas consuman la misma pulsaciÃ³n de confirmar.
+        if (ArduinoCompatibilityPrompt.Instance != null &&
+            ArduinoCompatibilityPrompt.Instance.IsPromptActive)
+            return;
+
+        if (SceneManager.GetActiveScene().name == "FNAE_Menu")
+            return;
+
         if (!IsDialogueActive)
         {
             if (nearbyNPC != null &&

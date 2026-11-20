@@ -16,6 +16,8 @@ public class ArduinoJoystickInput : MonoBehaviour
     [Header("Configuración serial")]
     public string puerto = "COM5";
     public int velocidad = 9600;
+    [Header("Diagnóstico temporal")]
+    [SerializeField] private bool debugInput;
 
     [Header("Joystick")]
     [Range(0f, 0.8f)] public float deadZone = 0.18f;
@@ -24,10 +26,15 @@ public class ArduinoJoystickInput : MonoBehaviour
     [Min(0.05f)] public float menuRepeatInterval = 0.16f;
 
     private const int ReadTimeoutMs = 100;
-    private const int MaxQueuedLines = 128;
+    private const float PauseRepeatGuardSeconds = 0.25f;
 
-    private readonly Queue<string> receivedLines = new Queue<string>();
+    // Las pulsaciones no comparten el buffer con las muestras de movimiento:
+    // el stick puede actualizarse muchas veces entre dos frames de Unity.
+    private readonly Queue<string> receivedButtonLines = new Queue<string>();
+    private readonly Queue<string> receivedRawDiagnostics = new Queue<string>();
     private readonly object queueLock = new object();
+    private string latestMovementLine;
+    private bool queuedJoyButtonHeld;
 
     private Thread readerThread;
     private bool isPrimary;
@@ -44,8 +51,8 @@ public class ArduinoJoystickInput : MonoBehaviour
     private bool simulationEnabled;
     private bool effectiveButtonHeld;
 
-    // D2: debe soltarse una vez antes de aceptar pulsaciones.
-    private bool pauseButtonArmed;
+    // Evita que una ráfaga del mismo evento puntual produzca varios toggles.
+    private float lastPauseEventTime = float.NegativeInfinity;
 
     private bool analogProtocolActive;
     private float lastAnalogPacketTime;
@@ -159,17 +166,18 @@ public class ArduinoJoystickInput : MonoBehaviour
         if (!connected)
         {
             lock (queueLock)
-                receivedLines.Clear();
+            {
+                receivedButtonLines.Clear();
+                latestMovementLine = null;
+                queuedJoyButtonHeld = false;
+            }
 
             movement = Vector2.zero;
             SetSerialButton(false);
-
-            // Después de reconectar, D2 debe soltarse
-            // antes de poder volver a pausar.
-            pauseButtonArmed = false;
         }
         else
         {
+            DrainRawDiagnostics();
             DrainReceivedLines();
 
             if (analogProtocolActive &&
@@ -258,10 +266,48 @@ public class ArduinoJoystickInput : MonoBehaviour
 
         lock (queueLock)
         {
-            if (receivedLines.Count >= MaxQueuedLines)
-                receivedLines.Dequeue();
+            if (debugInput)
+                receivedRawDiagnostics.Enqueue(line);
+            line = line.Trim();
 
-            receivedLines.Enqueue(line.Trim());
+            if (TryReadJoyButtonState(line, out bool buttonHeld))
+            {
+                if (buttonHeld != queuedJoyButtonHeld)
+                {
+                    queuedJoyButtonHeld = buttonHeld;
+                    receivedButtonLines.Enqueue(line);
+                    if (debugInput) receivedRawDiagnostics.Enqueue("[3] INPUT_BUFFER | edge queued: " + line);
+                }
+                else
+                {
+                    latestMovementLine = line;
+                }
+            }
+            else if (IsButtonEventMessage(line))
+            {
+                receivedButtonLines.Enqueue(line);
+                if (debugInput) receivedRawDiagnostics.Enqueue("[3] INPUT_BUFFER | button queued: " + line);
+            }
+            else if (IsMovementMessage(line))
+            {
+                latestMovementLine = line;
+            }
+        }
+    }
+
+    private void DrainRawDiagnostics()
+    {
+        while (true)
+        {
+            string raw;
+            lock (queueLock)
+            {
+                if (receivedRawDiagnostics.Count == 0) return;
+                raw = receivedRawDiagnostics.Dequeue();
+            }
+            LogInput(raw.StartsWith("[3] ", StringComparison.Ordinal)
+                ? raw
+                : "[1] SERIAL_RAW | " + raw);
         }
     }
 
@@ -273,18 +319,110 @@ public class ArduinoJoystickInput : MonoBehaviour
 
             lock (queueLock)
             {
-                if (receivedLines.Count == 0)
+                if (receivedButtonLines.Count == 0)
                     break;
 
-                line = receivedLines.Dequeue();
+                line = receivedButtonLines.Dequeue();
             }
 
             ProcessMessage(line);
         }
+
+        string movementLine;
+        lock (queueLock)
+        {
+            movementLine = latestMovementLine;
+            latestMovementLine = null;
+        }
+
+        if (!string.IsNullOrEmpty(movementLine))
+            ProcessMessage(movementLine, false);
     }
 
-    private void ProcessMessage(string message)
+    private static bool IsButtonEventMessage(string message)
     {
+        switch (message)
+        {
+            case "INTERACTUAR":
+            case "INVENTARIO":
+            case "ACTION:PAUSE":
+            case "ACTION:INTERACT":
+            case "ACTION:INTERACT_RELEASED":
+            case "ACTION:INVENTORY":
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private static bool IsMovementMessage(string message)
+    {
+        if (message.StartsWith("MOVE:", StringComparison.Ordinal) ||
+            message.StartsWith("JOY,", StringComparison.Ordinal))
+            return true;
+
+        return message == "ARRIBA" || message == "ABAJO" ||
+               message == "IZQUIERDA" || message == "DERECHA" ||
+               message == "QUIETO";
+    }
+
+    private static bool TryReadJoyButtonState(string message, out bool held)
+    {
+        held = false;
+        if (!message.StartsWith("JOY,", StringComparison.Ordinal))
+            return false;
+
+        int comma = message.LastIndexOf(',');
+        if (comma < 0 || comma == message.Length - 1)
+            return false;
+
+        string value = message.Substring(comma + 1);
+        if (value == "1")
+        {
+            held = true;
+            return true;
+        }
+
+        return value == "0";
+    }
+
+    private void ProcessMessage(string message, bool includeButtonState = true)
+    {
+        if (message == "INTERACTUAR" || message == "INVENTARIO" ||
+            message.StartsWith("ACTION:", StringComparison.Ordinal))
+            LogInput("[2] PARSER | recognized button message: " + message);
+        // Unity recibe eventos de botón por mensaje; no se usa un estado
+        // mantenido ni se requiere un mensaje de liberación.
+        switch (message)
+        {
+            case "ARRIBA":
+                movement = Vector2.up;
+                analogProtocolActive = false;
+                return;
+            case "ABAJO":
+                movement = Vector2.down;
+                analogProtocolActive = false;
+                return;
+            case "IZQUIERDA":
+                movement = Vector2.left;
+                analogProtocolActive = false;
+                return;
+            case "DERECHA":
+                movement = Vector2.right;
+                analogProtocolActive = false;
+                return;
+            case "QUIETO":
+                movement = Vector2.zero;
+                analogProtocolActive = false;
+                return;
+            case "INTERACTUAR":
+                RouteSerialInteractionPulse();
+                return;
+            case "INVENTARIO":
+                QueuePauseFromSerial();
+                return;
+        }
+
         if (message.StartsWith("MOVE:", StringComparison.Ordinal))
         {
             switch (message)
@@ -321,21 +459,16 @@ public class ArduinoJoystickInput : MonoBehaviour
         {
             case "ACTION:PAUSE":
             {
-                if (pauseButtonArmed)
+                float now = Time.unscaledTime;
+                if (now - lastPauseEventTime >= PauseRepeatGuardSeconds)
                 {
-                    pauseButtonArmed = false;
-
-                    PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
-                    if (pauseManager != null)
-                        pauseManager.TogglePause();
+                    lastPauseEventTime = now;
+                    QueuePauseFromSerial();
                 }
+                else
+                    LogInput("[3] INPUT_BUFFER | repeated pause event ignored inside repeat guard");
 
                 break;
-            }
-            case "ACTION:PAUSE_RELEASED":
-            {
-                pauseButtonArmed = true;
-                return;
             }
 
             case "ACTION:INTERACT":
@@ -347,7 +480,7 @@ public class ArduinoJoystickInput : MonoBehaviour
                 return;
 
             case "ACTION:INVENTORY":
-                EntradaJuego.QueueInventoryDown();
+                QueuePauseFromSerial();
                 return;
         }
 
@@ -386,7 +519,8 @@ public class ArduinoJoystickInput : MonoBehaviour
             deadZone
         );
 
-        SetSerialButton(parts[3] == "1");
+        if (includeButtonState)
+            SetSerialButton(parts[3] == "1");
     }
 
     private static Vector2 ApplyDeadZone(
@@ -409,6 +543,7 @@ public class ArduinoJoystickInput : MonoBehaviour
     private void SetSerialButton(bool held)
     {
         serialButtonHeld = held;
+        SyncInteractionButton();
     }
 
     // D3: cada escena recibe únicamente la interacción que le corresponde.
@@ -442,12 +577,22 @@ public class ArduinoJoystickInput : MonoBehaviour
 
         if (sceneName == "juego")
         {
+            PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
+            if (pauseManager != null && pauseManager.IsPaused)
+            {
+                LogInput("[5] ACTION | D3 routed to selected pause UI");
+                SubmitSelectedUI();
+                return;
+            }
+
             EntradaJuego.SetArduinoInteractHeld(true);
+            LogInput("[5] ACTION | D3 delivered as gameplay interaction");
             return;
         }
 
-        if (sceneName == "FNAE_Menu")
+        if (sceneName == "FNAE_Menu" || sceneName == "MenuPrincipal")
         {
+            LogInput("[5] ACTION | D3 routed to selected menu UI");
             SubmitSelectedUI();
             return;
         }
@@ -456,18 +601,67 @@ public class ArduinoJoystickInput : MonoBehaviour
         // persistente del mapa principal.
     }
 
+    private void RouteSerialInteractionPulse()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "juego")
+        {
+            PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
+            if (pauseManager != null && pauseManager.IsPaused)
+            {
+                SubmitSelectedUI();
+                return;
+            }
+        }
+        else if (sceneName == "FNAE_Menu" || sceneName == "MenuPrincipal")
+        {
+            SubmitSelectedUI();
+            return;
+        }
+
+        EntradaJuego.QueueInteractDown();
+    }
+
+    private static void QueuePauseFromSerial()
+    {
+        if (SceneManager.GetActiveScene().name == "juego")
+        {
+            if (Instance != null) Instance.LogInput("[3] INPUT_BUFFER | pause event stored");
+            EntradaJuego.QueuePauseDown();
+        }
+        else if (Instance != null)
+            Instance.LogInput("[5] ACTION | pause event rejected outside scene 'juego'");
+    }
+
+    internal static void LogConsumer(string action, string consumer, bool result, bool pending)
+    {
+        if (Instance != null && Instance.debugInput && pending)
+            Instance.LogInput("[4] INPUT_CONSUMER | " + consumer + " consumed " + action + " (true)");
+    }
+
+    private void LogInput(string message)
+    {
+        if (debugInput) Debug.Log(message, this);
+    }
+
     private static void SubmitSelectedUI()
     {
         EventSystem eventSystem = EventSystem.current;
 
         if (eventSystem == null)
+        {
+            if (Instance != null) Instance.LogInput("[5] ACTION | UI submit rejected: no current EventSystem");
             return;
+        }
 
         GameObject selected =
             eventSystem.currentSelectedGameObject;
 
         if (selected == null || !selected.activeInHierarchy)
+        {
+            if (Instance != null) Instance.LogInput("[5] ACTION | UI submit rejected: no active selection");
             return;
+        }
 
         // Priorizar la interfaz específica de FNAE.
         MonoBehaviour[] components =
@@ -478,6 +672,7 @@ public class ArduinoJoystickInput : MonoBehaviour
             if (components[i] is IArduinoMenuItem item)
             {
                 item.OnArduinoSubmit();
+                if (Instance != null) Instance.LogInput("[5] ACTION | custom menu item submitted: " + selected.name);
                 return;
             }
         }
@@ -488,6 +683,7 @@ public class ArduinoJoystickInput : MonoBehaviour
             new BaseEventData(eventSystem),
             ExecuteEvents.submitHandler
         );
+        if (Instance != null) Instance.LogInput("[5] ACTION | Unity submit sent to: " + selected.name);
     }
 
     private void UpdateKeyboardSimulation()
@@ -802,6 +998,7 @@ public class ArduinoJoystickInput : MonoBehaviour
 
         // No arrastrar interacciones entre escenas.
         EntradaJuego.SetArduinoInteractHeld(false);
+        EntradaJuego.ClearPendingEvents();
 
         // Si D3 sigue apretado durante el cambio de escena,
         // no generar una segunda pulsación automática.
@@ -825,6 +1022,7 @@ public class ArduinoJoystickInput : MonoBehaviour
             simulatedButtonHeld = false;
 
             SetSerialButton(false);
+            EntradaJuego.ClearPendingEvents();
             EntradaJuego.SetArduinoInteractHeld(false);
 
             movement = Vector2.zero;

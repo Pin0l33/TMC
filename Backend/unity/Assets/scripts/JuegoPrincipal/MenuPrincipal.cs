@@ -45,6 +45,14 @@ public class MenuPrincipal : MonoBehaviour
 
         optionsOpen = optionsPanel != null && optionsPanel.activeInHierarchy;
         if (optionsOpen) ApplyOptionsState(true);
+        else if (EventSystem.current != null &&
+                 EventSystem.current.currentSelectedGameObject == null &&
+                 mainSelectables.Count > 0 &&
+                 mainSelectables[0] != null &&
+                 mainSelectables[0].IsInteractable())
+        {
+            EventSystem.current.SetSelectedGameObject(mainSelectables[0].gameObject);
+        }
     }
 
     void Update()

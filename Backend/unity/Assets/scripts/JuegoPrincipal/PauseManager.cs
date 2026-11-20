@@ -7,6 +7,8 @@ using TMPro;
 
 public class PauseManager : MonoBehaviour
 {
+    public bool IsPaused => isPaused;
+
     [SerializeField] private GameObject pausePanel;
 
     private readonly List<Selectable> pauseSelectables = new List<Selectable>();
@@ -16,6 +18,7 @@ public class PauseManager : MonoBehaviour
     private Selectable optionsFirst;
     private bool isPaused;
     private bool optionsOpen;
+    private bool hasLoggedFirstUpdate;
 
     private TMP_Text pauseTitleText;
     private TMP_Text continueText;
@@ -38,7 +41,7 @@ public class PauseManager : MonoBehaviour
         if (pauseTitleText != null) pauseTitleText.text = es ? "PAUSA" : "PAUSE";
         if (continueText != null) continueText.text = es ? "CONTINUAR" : "CONTINUE";
         if (optionsText != null) optionsText.text = es ? "OPCIONES" : "OPTIONS";
-        if (exitText != null) exitText.text = es ? "SALIR AL MENÚ" : "EXIT TO MENU";
+        if (exitText != null) exitText.text = es ? "Volver al menu" : "EXIT TO MENU";
     }
 
     void Start()
@@ -96,9 +99,19 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
+        if (!hasLoggedFirstUpdate)
+        {
+            hasLoggedFirstUpdate = true;
+            Debug.Log($"[PAUSE_DIAG] Update activo: activeAndEnabled={isActiveAndEnabled}, gameObjectActive={gameObject.activeInHierarchy}, pausePanelValido={pausePanel != null}", this);
+        }
+
         if (pausePanel == null) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        bool physicalPausePressed = EntradaJuego.GetPauseDown();
+        if (physicalPausePressed)
+            Debug.Log($"[PAUSE_DIAG] GetPauseDown()=true; paused={isPaused}, pausePanelActivo={pausePanel.activeInHierarchy}", this);
+
+        if (Input.GetKeyDown(KeyCode.Escape) || physicalPausePressed)
         {
             if (isPaused && optionsOpen)
             {
@@ -124,10 +137,13 @@ public class PauseManager : MonoBehaviour
 
     public void TogglePause()
     {
+        Debug.Log($"[PAUSE_DIAG] TogglePause entrada; paused={isPaused}, timeScale={Time.timeScale}, pausePanelValido={pausePanel != null}, pausePanelActivo={(pausePanel != null && pausePanel.activeInHierarchy)}", this);
+
         bool opening = !isPaused;
         isPaused = opening;
         pausePanel.SetActive(opening);
         Time.timeScale = opening ? 0f : 1f;
+        Debug.Log($"[PAUSE_DIAG] PausePanel {(opening ? "activado" : "desactivado")}; activoAhora={pausePanel.activeInHierarchy}, timeScaleAhora={Time.timeScale}", this);
 
         bool canPlayerMove = !opening;
         if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
@@ -205,7 +221,10 @@ public class PauseManager : MonoBehaviour
         optionsOpen = false;
 
         if (pausePanel != null)
+        {
             pausePanel.SetActive(false);
+            Debug.Log($"[PAUSE_DIAG] PausePanel desactivado desde OnExitToMenuButton; activoAhora={pausePanel.activeInHierarchy}", this);
+        }
         if (optionsPanel != null)
             optionsPanel.SetActive(false);
 
@@ -213,6 +232,7 @@ public class PauseManager : MonoBehaviour
         ClearSelection();
 
         Time.timeScale = 1f;
+        Debug.Log($"[PAUSE_DIAG] OnExitToMenuButton; timeScaleAhora={Time.timeScale}", this);
         MovimientoJugador.canMove = true;
         SceneManager.LoadScene("MenuPrincipal");
     }

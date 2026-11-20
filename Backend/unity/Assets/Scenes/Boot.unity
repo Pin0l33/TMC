@@ -3073,6 +3073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArduinoJoystickInput
   puerto: COM5
   velocidad: 9600
+  debugInput: 0
   deadZone: 0.18
   menuThreshold: 0.55
   menuRepeatDelay: 0.35
@@ -6674,6 +6675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArduinoJoystickInput
   puerto: COM5
   velocidad: 9600
+  debugInput: 0
   deadZone: 0.18
   menuThreshold: 0.55
   menuRepeatDelay: 0.35

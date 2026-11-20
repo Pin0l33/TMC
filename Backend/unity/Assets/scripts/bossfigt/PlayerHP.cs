@@ -51,6 +51,7 @@ public class PlayerHP : MonoBehaviour
     public void ResetHP()
     {
         CurrentHP = maxHP;
+        invulnerableTimer = 0f;
         OnHPChanged?.Invoke(CurrentHP, maxHP);
     }
 }

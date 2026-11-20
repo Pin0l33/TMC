@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Runtime.CompilerServices;
 
 public class EntradaJuego : MonoBehaviour
 {
@@ -6,17 +7,19 @@ public class EntradaJuego : MonoBehaviour
 
     // Eventos en buffer: no se pierden si el mensaje serial llega después
     // de que otro Update ya se ejecutó en este frame.
-    private static bool pendingInteractDown;
-    private static bool pendingInteractUp;
-    private static bool pendingInventoryDown;
+    private static int pendingInteractDown;
+    private static int pendingInteractUp;
+    private static int pendingInventoryDown;
+    private static int pendingPauseDown;
     private static bool arduinoInteractHeld;
 
 
-    public static bool GetInteractDown()
+    public static bool GetInteractDown([CallerMemberName] string consumer = "unknown")
     {
-        bool pending = pendingInteractDown;
-        pendingInteractDown = false;
-        return Input.GetKeyDown(KeyCode.E) || pending;
+        bool pending = Consume(ref pendingInteractDown);
+        bool result = Input.GetKeyDown(KeyCode.E) || pending;
+        ArduinoJoystickInput.LogConsumer("InteractDown", consumer, result, pending);
+        return result;
     }
 
     public static bool GetInteract()
@@ -27,30 +30,68 @@ public class EntradaJuego : MonoBehaviour
 
     public static bool GetInteractUp()
     {
-        bool pending = pendingInteractUp;
-        pendingInteractUp = false;
+        bool pending = Consume(ref pendingInteractUp);
         return Input.GetKeyUp(KeyCode.E) || pending;
     }
 
     public static bool GetInventoryDown()
     {
-        bool pending = pendingInventoryDown;
-        pendingInventoryDown = false;
+        bool pending = Consume(ref pendingInventoryDown);
         return Input.GetKeyDown(KeyCode.I) || pending;
+    }
+
+    public static bool GetPauseDown([CallerMemberName] string consumer = "unknown")
+    {
+        bool result = Consume(ref pendingPauseDown);
+        ArduinoJoystickInput.LogConsumer("PauseDown", consumer, result, result);
+        return result;
     }
 
     public static void SetArduinoInteractHeld(bool held)
     {
         if (arduinoInteractHeld == held) return;
         arduinoInteractHeld = held;
-        if (held) pendingInteractDown = true;
-        else pendingInteractUp = true;
+        if (held) Enqueue(ref pendingInteractDown);
+        else Enqueue(ref pendingInteractUp);
 
     }
 
     public static void QueueInventoryDown()
     {
-        pendingInventoryDown = true;
+        Enqueue(ref pendingInventoryDown);
+    }
+
+    public static void QueueInteractDown()
+    {
+        Enqueue(ref pendingInteractDown);
+    }
+
+    public static void QueuePauseDown()
+    {
+        Enqueue(ref pendingPauseDown);
+    }
+
+    private static void Enqueue(ref int pending)
+    {
+        if (pending < int.MaxValue)
+            pending++;
+    }
+
+    private static bool Consume(ref int pending)
+    {
+        if (pending <= 0)
+            return false;
+
+        pending--;
+        return true;
+    }
+
+    public static void ClearPendingEvents()
+    {
+        pendingInteractDown = 0;
+        pendingInteractUp = 0;
+        pendingInventoryDown = 0;
+        pendingPauseDown = 0;
     }
 
     private void Awake()
@@ -62,6 +103,8 @@ public class EntradaJuego : MonoBehaviour
         }
 
         Instance = this;
+        ClearPendingEvents();
+        arduinoInteractHeld = false;
         DontDestroyOnLoad(gameObject);
 
         // If the serial service received a press before this scene loaded,
